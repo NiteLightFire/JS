@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Tasks</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .task { margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+        h2 { color: #333; }
+        .output { font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Tasks (Задания 17-18)</h1>
+    <div class="task">
+        <h2>1. Проверка числа на отрицательность</h2>
+        <div id="task1" class="output"></div>
+        <script>
+            let number1 = -5;
+            document.getElementById("task1").innerText = number1 < 0 ? "Отрицательное" : "Положительное или ноль";
+        </script>
+    </div>
+    <div class="task">
+        <h2>2. Последняя буква слова (или предпоследняя, если последняя "ь")</h2>
+        <div id="task2" class="output"></div>
+        <script>
+            let word = "мягкий";
+            let lastChar = word[word.length - 1];
+            let result = (lastChar === 'ь') ? word[word.length - 2] : lastChar;
+            document.getElementById("task2").innerText = "Результат: " + result;
+        </script>
+    </div>
+    <div class="task">
+        <h2>3. Количество цифр в числе</h2>
+        <div id="task3" class="output"></div>
+        <script>
+            let number3 = 12345;
+            document.getElementById("task3").innerText = "Количество цифр: " + number3.toString().length;
+        </script>
+    </div>
+    <div class="task">
+        <h2>4. Проверка делимости чисел</h2>
+        <div id="task4" class="output"></div>
+        <script>
+            let a = 10, b = 2;
+            document.getElementById("task4").innerText = a % b === 0 ? "Делится без остатка" : "Не делится без остатка";
+        </script>
+    </div>
+    <div class="task">
+        <h2>5. Числа, кратные 3, от 1 до 100</h2>
+        <div id="task5" class="output"></div>
+        <script>
+            let output5 = "";
+            for (let i = 1; i <= 100; i++) {
+                if (i % 3 === 0) {
+                    output5 += i + " ";
+                }
+            }
+            document.getElementById("task5").innerText = output5;
+        </script>
+    </div>
+    <div class="task">
+        <h2>6. Символы строки в обратном порядке</h2>
+        <div id="task6" class="output"></div>
+        <script>
+            let str6 = "пример";
+            let reversedStr = str6.split('').reverse().join('');
+            document.getElementById("task6").innerText = reversedStr;
+        </script>
+    </div>
+    <div class="task">
+        <h2>7. Сумма положительных элементов массива</h2>
+        <div id="task7" class="output"></div>
+        <script>
+            let arr7 = [-2, 5, 3, -8, 10];
+            let sumPositive = arr7.filter(x => x > 0).reduce((acc, x) => acc + x, 0);
+            document.getElementById("task7").innerText = "Сумма положительных элементов: " + sumPositive;
+        </script>
+    </div>
+    <div class="task">
+        <h2>8. Удаление предпоследнего символа из строки</h2>
+        <div id="task8" class="output"></div>
+        <script>
+            let str8 = "пример";
+            str8 = str8.slice(0, -2) + str8.slice(-1);
+            document.getElementById("task8").innerText = str8;
+        </script>
+    </div>
+    <div class="task">
+        <h2>9. Позиция первой цифры в строке</h2>
+        <div id="task9" class="output"></div>
+        <script>
+            let str9 = "abc123";
+            let pos = str9.search(/\d/);
+            document.getElementById("task9").innerText = "Позиция первой цифры: " + pos;
+        </script>
+    </div>
+    <div class="task">
+        <h2>10. Определение регистра символа</h2>
+        <div id="task10" class="output"></div>
+        <script>
+            let char = 'A';
+            document.getElementById("task10").innerText = char === char.toUpperCase() ? "Верхний регистр" : "Нижний регистр";
+        </script>
+    </div>
+    <div class="task">
+        <h2>11. Первая чётная цифра с конца числа</h2>
+        <div id="task11" class="output"></div>
+        <script>
+            let number11 = 123456;
+            let evenDigit = number11.toString().split('').reverse().find(x => x % 2 === 0);
+            document.getElementById("task11").innerText = "Первая чётная цифра с конца: " + evenDigit;
+        </script>
+    </div>
+    <div class="task">
+        <h2>12. Вставка однозначных чисел в массив после каждой такой цифры</h2>
+        <div id="task12" class="output"></div>
+        <script>
+            let arr12 = [5, 12, 3, 9];
+            for (let i = 0; i < arr12.length; i++) {
+                if (arr12[i] < 10) {
+                    arr12.splice(i + 1, 0, arr12[i]);
+                    i++;
+                }
+            }
+            document.getElementById("task12").innerText = "Результат: " + arr12.join(", ");
+        </script>
+    </div>
+    <div class="task">
+        <h2>13. Определение знака зодиака по дате рождения</h2>
+        <div id="task13" class="output"></div>
+        <script>
+            function getZodiacSign(day, month) {
+                const zodiac = [
+                    "Козерог", "Водолей", "Рыбы", "Овен", "Телец", 
+                    "Близнецы", "Рак", "Лев", "Дева", "Весы", "Скорпион", "Стрелец"
+                ];
+                const dates = [20, 19, 20, 20, 21, 21, 22, 23, 23, 23, 22, 21];
+                return day > dates[month - 1] ? zodiac[month] : zodiac[month - 1];
+            }
+            let sign = getZodiacSign(15, 8); // Лев
+            document.getElementById("task13").innerText = "Знак зодиака: " + sign;
+        </script>
+    </div>
+
+</body>
+</html>
